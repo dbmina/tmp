@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 import blogPosts.views
+import accounts.views # 추가
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blogPosts.views.index, name='index'),
     path('posts/', include('blogPosts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', accounts.views.signup, name='signup'),
 ]
